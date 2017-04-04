@@ -9,11 +9,13 @@ class UsersController < ApplicationController
     @user.password = user_params[:password]
     @user.password_confirmation = user_params[:password_confirmation]
 
-    if @user.save
-      redirect to "/"
-    else
-      render "new"
-    end
+    @user.save #TODO remove and institute commented out material
+    # # commented out pending routes actually being generated...
+    # if @user.save
+    #   redirect to root_path
+    # else
+    #   render "new"
+    # end
   end
 
 
