@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user.password_confirmation = user_params[:password_confirmation]
 
     if @user.save
-      redirect to root_path
+      redirect to "/"
     else
       render "new"
     end
