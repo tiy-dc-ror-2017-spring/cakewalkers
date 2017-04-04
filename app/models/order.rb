@@ -11,6 +11,6 @@ class Order < ApplicationRecord
   end
 
   def calculate_tax
-    calculate_subtotal * 5.75
+    calculate_subtotal * 0.00575
   end
 end
