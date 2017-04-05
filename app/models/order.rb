@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
-  belongs_to :client
-  belongs_to :staff
+  belongs_to :client, optional: true
+  belongs_to :staff, optional: true
   has_many :line_items
 
   # TODO: write code to grab line_item_total for each line_item to get subtotal for order
