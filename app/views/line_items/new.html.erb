@@ -1,1 +1,10 @@
-<%= render "form" %>
+<%= form_for @line_item do |f| %>
+
+  <%= f.collection_select :product_id, Product.all, :id, :name  %>
+
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+
+  <%= f.submit "Place in cart" %>
+
+<% end %>
