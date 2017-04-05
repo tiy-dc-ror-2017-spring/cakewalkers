@@ -10,7 +10,7 @@ class Order < ApplicationRecord
   def calculate_subtotal(line_items)
   end
 
-  def calculate_tax
-    calculate_subtotal * 0.00575
+  def calculate_tax(subtotal)
+    subtotal * 0.00575
   end
 end
