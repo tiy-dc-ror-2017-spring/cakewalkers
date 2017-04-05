@@ -40,6 +40,8 @@ group :development, :test do
   gem "pry-rails"
   gem "rspec-rails"
   gem "rails-controller-testing"
+  gem "better_errors"
+  gem "binding_of_caller"
 end
 
 group :development do
