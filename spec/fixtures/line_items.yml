@@ -1,0 +1,6 @@
+
+one:
+  product_id: 1
+  quantity: 5
+  order_id: 2
+  line_item_total: 20
