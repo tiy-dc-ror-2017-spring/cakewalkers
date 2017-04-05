@@ -4,8 +4,8 @@ class OrdersController < ApplicationController
     @order = @client.order.last
     @line_items = @order.line_items
     @subtotal = @order.calculate_subtotal(@line_items)
-    @tax = @order.tax(@subtotal)
-    @total = @subtotal + @tax
-    @order.update(subtotal: @subtotal, tax: @tax, total: @total)
+    @tax_total = @order.calculate_tax_total(@subtotal)
+    @total = @subtotal + @tax_total
+    @order.update(subtotal: @subtotal, tax: @tax_total, total: @total)
   end
 end
