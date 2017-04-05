@@ -1,0 +1,16 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+client:
+  email: client@client.com
+  password_digest: cc3a0280e4fc1415930899896574e118
+  role: client
+
+staff:
+  email: staff@staff.com
+  password_digest: cc3a0280e4fc1415930899896574e118
+  role: staff
+
+admin:
+  email: admin@admin.com
+  password_digest: cc3a0280e4fc1415930899896574e118
+  role: admin
