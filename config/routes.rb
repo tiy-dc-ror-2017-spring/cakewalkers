@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   resources :orders, only: [:create]
   resources :line_items
-  resources :products
+  resources :products, only: [:index, :show]
   resource :users, only: [:new, :create]
 
   root controller: "products", action: "index" # TODO: change to a homepage of some kind
