@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  user: one
-  first_name: MyString
-  last_name: MyString
-  street: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
+robby:
+  user: 1
+  first_name: Robby
+  last_name: Dore
+  street: 1600 Pennsylvania Ave
+  city: Washington
+  state: DC
+  zip: "20500"
 
-two:
-  user: two
-  first_name: MyString
-  last_name: MyString
-  street: MyString
-  city: MyString
-  state: MyString
-  zip: MyString
+james:
+  user: 2
+  first_name: James
+  last_name: Webb
+  street: 10 Downing Street
+  city: London
+  state: NY
+  zip: "10804"
