@@ -4,10 +4,10 @@ one:
   name: Yumyum Creamsicle
   description: Cupcake
   picture: https://roaminghunger.com/img/trucks/original/4d93e345-db3c-4fda-ac98-0ee246204482.JPG
-  unit_price: 4.99
+  unit_price_in_cents: 499
 
 two:
   name: Yasss Bish
   description: Cupcake
   picture: http://3.bp.blogspot.com/-GyAV6g-_RH8/VM08kO3vJMI/AAAAAAAAEwI/SN-7QpLJ-G4/s1600/Blog%2B5%2BIMG_4695.jpg
-  unit_price: 5.99
+  unit_price_in_cents: 599
