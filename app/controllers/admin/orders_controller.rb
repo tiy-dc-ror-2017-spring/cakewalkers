@@ -7,6 +7,7 @@ class Admin::OrdersController < ApplicationController
 
     @per_page = 100
     @total_pages = (Order.count.to_f / @per_page).ceil
+    @total_pages = @total_pages > 0 ? @total_pages : 1
 
     if @page > @total_pages
       @page = @total_pages
