@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170405205648) do
     t.datetime "delivered_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
-    t.datetime "paid"
+    t.datetime "paid_at"
   end
 
   create_table "products", force: :cascade do |t|
