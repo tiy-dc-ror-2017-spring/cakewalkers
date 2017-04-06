@@ -9,15 +9,12 @@ class UsersController < ApplicationController
     @user.password = user_params[:password]
     @user.password_confirmation = user_params[:password_confirmation]
 
-    @user.save #TODO remove and institute commented out 
-    # # commented out pending routes actually being generated...
-    # if @user.save
-    #   redirect to root_path
-    # else
-    #   render "new"
-    # end
+    if @user.save
+      redirect_to root_path
+    else
+      render "new"
+    end
   end
-
 
   private def user_params
     params.require(:user).permit(:email, :password, :password_confirmation)
