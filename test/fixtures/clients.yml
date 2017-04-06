@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+robby:
+  user: 1
+  first_name: Robby
+  last_name: Dore
+  street: 1600 Pennsylvania Ave
+  city: Washington
+  state: DC
+  zip: "20500"
+
+james:
+  user: 2
+  first_name: James
+  last_name: Webb
+  street: 10 Downing Street
+  city: London
+  state: NY
+  zip: "10804"
