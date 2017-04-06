@@ -3,12 +3,11 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :orders, only: [:index, :show]
+    resources :products
   end
-
   resources :orders, only: [:create]
-
+  resources :line_items
   resources :products
-
   resource :users, only: [:new, :create]
 
   root controller: "products", action: "index" # TODO: change to a homepage of some kind

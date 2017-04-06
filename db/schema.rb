@@ -12,10 +12,23 @@
 
 
 
-ActiveRecord::Schema.define(version: 20170405205648) do
+ActiveRecord::Schema.define(version: 20170406184924) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_clients_on_user_id", using: :btree
+  end
 
   create_table "orders", force: :cascade do |t|
     t.integer  "client_id"
@@ -48,4 +61,5 @@ ActiveRecord::Schema.define(version: 20170405205648) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
+  add_foreign_key "clients", "users"
 end
