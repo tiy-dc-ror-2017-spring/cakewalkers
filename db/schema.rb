@@ -28,6 +28,15 @@ ActiveRecord::Schema.define(version: 20170406184924) do
     t.index ["user_id"], name: "index_clients_on_user_id", using: :btree
   end
 
+  create_table "line_items", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.integer  "order_id"
+    t.integer  "line_item_total"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "orders", force: :cascade do |t|
     t.integer  "client_id"
     t.integer  "staff_id"
