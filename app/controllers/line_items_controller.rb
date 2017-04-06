@@ -1,16 +1,16 @@
 class LineItemsController < ApplicationController
   before_action :authorize!
   def new
-    if current_user_last_order.paid == true
+    if user_last_order.paid == true
       @order = current_user.order.create
       @line_item = @order.new
     else
-      @line_item = current_user_last_order.line_item.new
+      @line_item = user_last_order.line_item.new
     end
   end
 
   def create
-    @line_item = current_user_last_order.line_item.build(line_item_params)
+    @line_item = user_last_order.line_item.build(line_item_params)
   end
 
   def edit
@@ -29,12 +29,14 @@ class LineItemsController < ApplicationController
     params.require(:line_item).permit(:quantity, :product_id)
   end
 
-  def current_user_last_order
-    current_user.order.last
+  def user_last_order
+    if current_user.order
+      current_user.order.last
+    end
   end
 
   def authorize!
-    if !current_user
+    if !current_user.client
       session[:error] = "Go Away"
       redirect_to products_path
     end
