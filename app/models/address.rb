@@ -1,9 +1,7 @@
-class Client < ApplicationRecord
+class Address < ApplicationRecord
   belongs_to :user
-  VALID_NAME_REGEX = /^[a-z-A-Z]+$/i
-  validates :first_name, format: { with: VALID_NAME_REGEX }
-  validates :last_name, format: { with: VALID_NAME_REGEX }
-
+  validates :first_name, length: { minimum: 1 }
+  validates :last_name, length: { minimum: 1 }
   validates :street, presence: true
   validates :city, presence: true
   validates :state, presence: true

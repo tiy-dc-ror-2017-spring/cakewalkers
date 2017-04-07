@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170407005131) do
+
+ActiveRecord::Schema.define(version: 20170407193028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "clients", force: :cascade do |t|
+  create_table "addresses", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "first_name"
     t.string   "last_name"
@@ -25,7 +26,7 @@ ActiveRecord::Schema.define(version: 20170407005131) do
     t.string   "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_clients_on_user_id", using: :btree
+    t.index ["user_id"], name: "index_addresses_on_user_id", using: :btree
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -38,7 +39,7 @@ ActiveRecord::Schema.define(version: 20170407005131) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.integer  "client_id"
+    t.integer  "user_id"
     t.integer  "staff_id"
     t.integer  "subtotal"
     t.integer  "tax"
@@ -76,7 +77,9 @@ ActiveRecord::Schema.define(version: 20170407005131) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
-  add_foreign_key "clients", "users"
+
   add_foreign_key "staff_members", "users"
-  add_foreign_key "staffs", "users"
+
+  add_foreign_key "addresses", "users"
+
 end
