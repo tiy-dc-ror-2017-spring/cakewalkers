@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class Admin::OrdersControllerTest < ActionDispatch::IntegrationTest
   # Import number_to_currency helpers
@@ -6,9 +6,11 @@ class Admin::OrdersControllerTest < ActionDispatch::IntegrationTest
   include ActionView::Helpers::NumberHelper
 
   test "should get index" do
+    Order.create
     get admin_orders_url
     assert_response :success
   end
+
 
   test "should get index second page" do
     4.times { |i| Order.create!(total: i * 100) }
