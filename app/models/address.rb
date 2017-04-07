@@ -1,4 +1,4 @@
-class Client < ApplicationRecord
+class Address < ApplicationRecord
   belongs_to :user
   validates :first_name, length: { minimum: 1 }
   validates :last_name, length: { minimum: 1 }
