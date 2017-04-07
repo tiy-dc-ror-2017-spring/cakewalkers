@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :orders, only: [:index, :show]
     resources :products
+    resources :staff_members
   end
   resources :orders, only: [:create]
   resources :line_items
