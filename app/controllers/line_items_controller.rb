@@ -30,13 +30,13 @@ class LineItemsController < ApplicationController
   end
 
   def user_last_order
-    if current_user.order
-      current_user.order.last
+    if current_user.orders
+      current_user.orders.last
     end
   end
 
   def authorize!
-    unless current_user.clients
+    unless current_user
       session[:error] = "Please log in before you order"
       redirect_to products_path
     end
