@@ -11,10 +11,5 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show]
   resource :users, only: [:new, :create]
 
-  # namespace :staff_members do
-  #   resources :orders, only: [:show]
-  #   resources :products
-  # end
-
   root controller: "products", action: "index" # TODO: change to a homepage of some kind
 end
