@@ -1,14 +1,24 @@
-<h1>Admin::Orders#index</h1>
+<h1>Admin Orders</h1>
 
 <%= pagination %>
 
 <table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Sub Total</th>
+            <th>Tax</th>
+            <th>Total</th>
+        </tr>
+
+    </thead>
+
   <% @orders.each do |order| %>
-  <tr>
-      <td><%= link_to order.id, admin_order_path(order) %></td>
-      <td><%= order.subtotal %></td>
-      <td><%= order.tax %></td>
-      <td><%= order.total %></td>
-  </tr>
+    <tr>
+        <td><%= link_to order.id, admin_order_path(order) %></td>
+        <td><%= number_to_currency order.subtotal %></td>
+        <td><%= number_to_percentage order.tax %></td>
+        <td><%= number_to_currency order.total %></td>
+    </tr>
   <% end %>
 </table>
