@@ -1,12 +1,19 @@
 <%= form_for @user do |f| %>
-  <%= f.label :email %>
-  <%= f.text_field :email, required: true %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password, required: true %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, required: true, class: "form-control" %>
+  </div>
 
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation, required: true %>
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, required: true, class: "form-control" %>
+  </div>
 
-  <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
+  </div>
+
+  <%= f.submit class: "btn btn-primary" %>
 <% end %>
