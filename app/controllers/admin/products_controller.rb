@@ -10,6 +10,8 @@ class Admin::ProductsController < ApplicationController
     @total_pages = (Product.count.to_f / @per_page).ceil
     @total_pages = @total_pages > 0 ? @total_pages : 1
 
+    @page = @page > @total_pages ? @total_pages : @page
+
     @products = Product \
                 .order(created_at: :desc)
                 .limit(@per_page)
