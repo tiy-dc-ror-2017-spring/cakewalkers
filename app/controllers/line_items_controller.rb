@@ -1,16 +1,16 @@
 class LineItemsController < ApplicationController
   before_action :authorize!
   def new
-    if user_last_order.paid == true
-      @order = current_user.order.create
-      @line_item = @order.line_item.new
+    if current_user.orders == nil
+      @order = current_user.unpaid_order
     else
-      @line_item = user_last_order.line_item.new
+      @order = current_user.order.create
     end
+    @line_item = @order.line_item.new
   end
 
   def create
-    @line_item = user_last_order.line_item.build(line_item_params)
+    @line_item = current_user.user_order.build(line_item_params)
   end
 
   def edit
@@ -29,16 +29,9 @@ class LineItemsController < ApplicationController
     params.require(:line_item).permit(:quantity, :product_id)
   end
 
-  def user_last_order
-    if current_user.orders
-      current_user.orders.last
-    end
-  end
-
   def authorize!
     unless current_user
-      session[:error] = "Please log in before you order"
-      redirect_to products_path
+      redirect_to products_path, notice: "Please log in before you add to your cart"
     end
   end
 end
