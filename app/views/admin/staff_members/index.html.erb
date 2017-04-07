@@ -1,0 +1,19 @@
+<h1>Staff</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @staff_members.each do |staff_member| %>
+      <tr>
+        <td><%= staff_member.name  %></td>
+        <td><%= staff_member.email %></td>
+        <td><%= link_to "Show Staff Member", admin_staff_member_path(staff_member.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
