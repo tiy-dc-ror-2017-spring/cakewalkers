@@ -20,5 +20,5 @@
   <%= @product.unit_price_in_cents %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
+<td><%= link_to "Add to cart", new_line_item_path %></td>
