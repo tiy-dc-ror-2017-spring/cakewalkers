@@ -6,10 +6,14 @@ class User < ApplicationRecord
   has_many :orders
 
   def unpaid_order
-    if self.orders.where(paid_at: nil).empty
-      self.order.create
+    if self.orders.where(paid_at: nil).empty?
+      self.orders.create
     else
       self.orders.find_by(paid_at: nil)
     end
+  end
+
+  def add_to_cart(item_params)
+    self.unpaid_order.line_items.build(item_params)
   end
 end

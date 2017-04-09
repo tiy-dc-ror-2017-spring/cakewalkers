@@ -1,16 +1,14 @@
 class LineItemsController < ApplicationController
   before_action :authorize!
   def new
-    if current_user.orders == nil
-      @order = current_user.unpaid_order
-    else
-      @order = current_user.order.create
-    end
-    @line_item = @order.line_item.new
+    @order = current_user.unpaid_order
+    @line_item = @order.line_items.new
+    @product = Product.find(params[:product])
   end
 
   def create
-    @line_item = current_user.user_order.build(line_item_params)
+    @line_item = current_user.add_to_cart(line_item_params)
+    redirect_to products_path
   end
 
   def edit
