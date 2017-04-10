@@ -1,9 +1,11 @@
 <%= form_for @line_item do |f| %>
 
-  <%= f.collection_select :product_id, Product.all, :id, :name  %>
+<h2>How many <%= @product.name %> would you like?</h2>
 
   <%= f.label :quantity %>
   <%= f.number_field :quantity %>
+
+  <%= f.hidden_field "product_id", {value: @product.id} %>
 
   <%= f.submit "Place in cart" %>
 

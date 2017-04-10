@@ -10,7 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20170407193028) do
 
   # These are extensions that must be enabled in order to support this database
@@ -77,9 +76,6 @@ ActiveRecord::Schema.define(version: 20170407193028) do
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
   end
 
-
-  add_foreign_key "staff_members", "users"
-
   add_foreign_key "addresses", "users"
-
+  add_foreign_key "staff_members", "users"
 end
