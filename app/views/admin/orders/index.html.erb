@@ -1,14 +1,22 @@
 <h1>Admin Orders</h1>
 
-<%= pagination %>
+<% if current_user.staff_member %>
+  <%= link_to "My Deliveries",
+    admin_staff_member_orders_path(current_user.staff_member),
+    class: "btn btn-default" %>
+<% end %>
 
-<table>
+
+<%= paginate @orders %>
+
+<table class="table table-borderless">
     <thead>
         <tr>
             <th>ID</th>
-            <th>Quantity</th>
+            <th>Subtotal</th>
             <th>Tax</th>
             <th>Total</th>
+            <th></th>
         </tr>
 
     </thead>
@@ -19,6 +27,7 @@
         <td><%= number_to_currency order.subtotal %></td>
         <td><%= number_to_percentage order.tax %></td>
         <td><%= number_to_currency order.total %></td>
+        <td><%= link_to 'Claim', claim_admin_order_path(order), method: :patch %></td>
     </tr>
   <% end %>
 </table>

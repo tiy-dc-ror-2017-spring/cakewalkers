@@ -1,2 +1,32 @@
-<h1>Admin::Orders#show</h1>
-<p>Find me in app/views/admin/orders/show.html.erb</p>
+<h3>Order number <%= @order.id %> for <%= @order.user.email %></h3>
+
+<% if @order.out_for_delivery? %>
+  <div class="alert alert-success">
+      <strong>Out for delivery</strong>
+      order being run by <%= @order.staff_member.name %>
+  </div>
+<% end %>
+
+<table class='table'>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th></th>
+            <th></th>
+        </tr>
+
+    </thead>
+    <% @order.line_items.each do |item| %>
+    <tr>
+      <td><%= item.id %></td>
+     <td><%= item.product.name %></td>
+     <td><%= item.quantity %></td>
+     <td><%= item.line_item_total %></td>
+     <td><%= link_to "Edit", edit_line_item_path(item) %></td>
+     <td><%= link_to 'Destroy', line_item_path(item.product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+   <% end %>
+ </table>
