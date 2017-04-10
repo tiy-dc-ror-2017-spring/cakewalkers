@@ -21,11 +21,12 @@
   <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td><%= image_tag product.picture, size: "72", class: 'thumbnail' %></td>
-
+        <% if product.picture %>
+          <td><%= image_tag product.picture, size: "72", class: 'thumbnail' %></td>
+        <% end %>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
-        <td><%= product.unit_price_in_cents %></td>
+        <td><%= number_to_currency product.unit_price %></td>
         <td><%= link_to 'Show', product_path(product) %></td>
         <td><%= link_to "Add to cart", new_line_item_path %></td>
       </tr>

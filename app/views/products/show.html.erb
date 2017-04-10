@@ -11,8 +11,10 @@
 </p>
 
 <p>
-  <strong>Picture:</strong>
-  <%= image_tag @product.picture, size: "144" %>
+  <% if @product.picture %>
+    <strong>Picture:</strong>
+    <%= image_tag @product.picture, size: "144" %>
+  <% end %>
 </p>
 
 <p>

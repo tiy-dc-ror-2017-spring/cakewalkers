@@ -1,3 +1,22 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar-default{
+  text-decoration: none;
+  color: white;
+}
+
+body{
+  color: #78513A;
+  font-family: "Georgia";
+  text-align: center;
+}
+
+.navbar-default .navbar-nav > li > a{
+  color: #DECFA1;
+  font-family: "Arial";
+}
+
+a{
+  text-decoration: none;
+}
