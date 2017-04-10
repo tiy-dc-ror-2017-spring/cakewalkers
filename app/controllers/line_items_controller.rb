@@ -19,10 +19,10 @@ class LineItemsController < ApplicationController
   def update
     @line_item = LineItem.find(params[:id])
     @line_item.update(line_item_params)
+    @line_item.total_price
     @line_item.save
     redirect_to orders_path
   end
-
 
   def destroy
     @line_item = LineItem.find(params[:id])
