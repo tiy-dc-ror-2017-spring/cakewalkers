@@ -1,0 +1,12 @@
+<%= form_tag checkout_payment_path do %>
+  <%= label_tag "credit_card" %>
+  <%= text_field_tag "credit_card", "", placeholder: "1234-1234-1234-1234", class: "form-control" %>
+
+  <%= label_tag "expiration" %>
+  <%= text_field_tag "expiration", "", placeholder: "01/99", class: "form-control" %>
+
+  <%= label_tag "cvv" %>
+  <%= text_field_tag "cvv", "", placeholder: "123", class: "form-control" %>
+
+  <%= submit_tag "Process", class: "btn btn-primary" %>
+<% end %>
