@@ -34,7 +34,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
+gem 'sidekiq'
+gem 'sinatra', require: false
 # pagination
 gem 'kaminari'
 
