@@ -4,6 +4,7 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   has_one :staff_member
   has_many :orders
+  has_many :addresses
 
   def unpaid_order
     if self.orders.where(paid_at: nil).empty?

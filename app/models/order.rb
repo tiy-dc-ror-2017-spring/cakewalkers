@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   belongs_to :user, optional: true
   belongs_to :staff_member, optional: true
   has_many :line_items
+  belongs_to :address, optional: true
   scope :ready, -> { where("ready_at IS NOT NULL") }
 
   # TODO: write code to grab line_item_total for each line_item to get subtotal for order
