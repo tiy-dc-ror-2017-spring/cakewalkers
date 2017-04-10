@@ -9,8 +9,7 @@ class ProductsController < ApplicationController
   end
 
   # GET /products/1
-  def show
-  end
+  def show; end
 
   private
 

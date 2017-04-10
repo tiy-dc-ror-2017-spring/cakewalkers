@@ -19,7 +19,7 @@
 
 <p>
   <strong>Unit price:</strong>
-  <%= @product.unit_price_in_cents %>
+  <%= number_to_currency @product.unit_price %>
 </p>
 
 <%= link_to 'Back', products_path %>
