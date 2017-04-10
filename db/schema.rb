@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 20170410193750) do
     t.datetime "updated_at",      null: false
     t.datetime "paid_at"
     t.datetime "ready_at"
-    t.integer  "address_id_id"
-    t.index ["address_id_id"], name: "index_orders_on_address_id_id", using: :btree
+    t.integer  "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id", using: :btree
   end
 
   create_table "products", force: :cascade do |t|
