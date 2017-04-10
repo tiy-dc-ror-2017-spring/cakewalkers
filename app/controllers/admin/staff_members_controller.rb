@@ -1,4 +1,5 @@
 class Admin::StaffMembersController < Admin::BaseController
+  before_action :admin_authorize!
   before_action :set_staff_member, only: [:show, :edit, :update, :destroy]
 
   def index
