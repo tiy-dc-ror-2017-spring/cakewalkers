@@ -1,5 +1,9 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
+
+products = HTTParty.get("https://cakewalkers-api.herokuapp.com/products")
+Product.create([products])
+
 staff_members = StaffMember.create!([
   { name: "Molly", user: User.create(email: "molly@stoopler.com", password: "password", password_confirmation: "password") },
   { name: "James", user: User.create(email: "james@webb.com", password: "password", password_confirmation: "password") },

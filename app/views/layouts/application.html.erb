@@ -3,7 +3,7 @@
   <head>
     <title>Cakewalkers</title>
     <%= csrf_meta_tags %>
-
+    <%= favicon_link_tag 'favicon.png' %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -12,7 +12,8 @@
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <ul class="nav navbar-nav">
-          <%= link_to "Products", products_path %>
+          <li><a href="/"><i class="fa fa-home fa-1x" aria-hidden="true"></i></a></li>
+          <li><%= link_to "Products", products_path %></li>
           <% if current_user %>
             <li><%= link_to 'Logout', session_path(id: current_user.id), method: :delete %></li>
             <li><%= link_to 'View Orders', orders_path %></li>
