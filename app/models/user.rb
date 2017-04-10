@@ -6,26 +6,27 @@ class User < ApplicationRecord
   has_many :orders
 
   def unpaid_order
-    if self.orders.where(paid_at: nil).empty?
-      self.orders.create
+    if orders.where(paid_at: nil).empty?
+      orders.create
     else
-      self.orders.find_by(paid_at: nil)
+      orders.find_by(paid_at: nil)
     end
   end
 
   def add_to_cart(item_params)
-    self.unpaid_order.line_items.build(item_params)
+    unpaid_order.line_items.build(item_params)
   end
 
   def admin?
-    current_user.role.casecmp == "admin"
+    role == "admin"
   end
 
   def staff_member?
-    current_user.role.casecmp == "staff_member"
+    role == "staff_member"
   end
 
   def client?
-    !current_usercurrent_user.role.casecmp == "admin" && !current_user.role.casecmp == "staff_member"
+    role != "admin" && role != "staff_member"
+    # !%w(admin staff_member).include?(role)
   end
 end
