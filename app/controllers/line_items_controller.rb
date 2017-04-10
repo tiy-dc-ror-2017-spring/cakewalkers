@@ -8,6 +8,7 @@ class LineItemsController < ApplicationController
 
   def create
     @line_item = current_user.add_to_cart(line_item_params)
+    @line_item.total_price
     redirect_to products_path
   end
 
@@ -19,6 +20,7 @@ class LineItemsController < ApplicationController
     @line_item = LineItem.find(params[:id])
     @line_item.update(line_item_params)
     @line_item.save
+    redirect_to orders_path
   end
 
   private

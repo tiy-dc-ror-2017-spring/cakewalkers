@@ -1,12 +1,10 @@
-<h1>Admin Orders</h1>
-
-<%= pagination %>
+<h1>Orders for <%= current_user.email %></h1>
 
 <table>
     <thead>
         <tr>
             <th>ID</th>
-            <th>Quantity</th>
+            <th>Sub Total</th>
             <th>Tax</th>
             <th>Total</th>
         </tr>
@@ -15,7 +13,7 @@
 
   <% @orders.each do |order| %>
     <tr>
-        <td><%= link_to order.id, admin_order_path(order) %></td>
+        <td><%= link_to order.id, order_path(order) %></td>
         <td><%= number_to_currency order.subtotal %></td>
         <td><%= number_to_percentage order.tax %></td>
         <td><%= number_to_currency order.total %></td>
