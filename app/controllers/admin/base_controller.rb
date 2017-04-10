@@ -1,6 +1,6 @@
 class Admin::BaseController < ApplicationController
   def admin_authorize!
-    unless admin?
+    unless current_user && current_user.admin?
       redirect_to products_path
     end
   end

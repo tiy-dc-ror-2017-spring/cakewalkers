@@ -1,10 +1,11 @@
-class Admin::ProductsController < ApplicationController
+class Admin::ProductsController < Admin::BaseController
+  before_action :admin_authorize!
   before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   def index
     @products = Product \
                 .order(created_at: :desc)
-                .page params [:page]
+                .page params[:page]
   end
 
   def show; end
