@@ -20,4 +20,12 @@ class User < ApplicationRecord
   def admin?
     current_user.role.casecmp == "admin"
   end
+
+  def staff_member?
+    current_user.role.casecmp == "staff_member"
+  end
+
+  def client?
+    !current_usercurrent_user.role.casecmp == "admin" && !current_user.role.casecmp == "staff_member"
+  end
 end
