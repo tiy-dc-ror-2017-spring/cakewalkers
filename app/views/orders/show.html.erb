@@ -17,7 +17,6 @@
       <td><%= item.quantity %></td>
       <td><%= item.line_item_total %></td>
       <td><%= link_to "Edit", edit_line_item_path(item) %></td>
-      <td><%= link_to "Show", line_item_path(item) %></td>
       <td><%= link_to 'Destroy', line_item_path(item.product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
      </tr>
     <% end %>
