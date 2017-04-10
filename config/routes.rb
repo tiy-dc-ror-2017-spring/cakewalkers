@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :products
     resources :staff_members
   end
-  resources :orders, only: [:create]
+  resources :orders
   resources :line_items
   resources :products, only: [:index, :show]
   resource :users, only: [:new, :create]
