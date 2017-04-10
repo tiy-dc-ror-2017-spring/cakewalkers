@@ -59,6 +59,14 @@ ActiveRecord::Schema.define(version: 20170407193028) do
     t.datetime "updated_at",          null: false
   end
 
+  create_table "staff_members", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_staff_members_on_user_id", using: :btree
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
@@ -69,4 +77,5 @@ ActiveRecord::Schema.define(version: 20170407193028) do
   end
 
   add_foreign_key "addresses", "users"
+  add_foreign_key "staff_members", "users"
 end

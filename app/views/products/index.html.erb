@@ -8,15 +8,6 @@
 
 
 <table class="table table-borderless">
-  <!-- <thead>
-    <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Unit price</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead> -->
 
   <tbody>
     <% @products.each do |product| %>
@@ -28,7 +19,7 @@
         <td><%= product.description %></td>
         <td><%= number_to_currency product.unit_price %></td>
         <td><%= link_to 'Show', product_path(product) %></td>
-        <td><%= link_to "Add to cart", new_line_item_path %></td>
+        <td><%= link_to "Add to cart", new_line_item_path(product: product) %></td>
       </tr>
     <% end %>
   </tbody>
