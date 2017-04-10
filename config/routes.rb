@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :admin do
+    get "/home", to: "home#index", as: "home"
     resources :orders, only: [:index, :show] do
       member do
         patch :claim

@@ -1,11 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Products</h1>
-<%= first_page_link %>
-<%= back_link %>
-<%= next_link %>
-<%= last_page_link %>
 
+<%= paginate @products %>
 
 <table class="table table-borderless">
 

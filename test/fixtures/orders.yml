@@ -1,0 +1,10 @@
+client_one_order_ready:
+  user: client
+  staff_member_id:
+  subtotal: ""
+  tax: ""
+  total: 100
+  paid_at: <%= 4.hours.ago %>
+  ready_at: <%= 3.hours.ago %>
+  picked_up_at:
+  delivered_at:
