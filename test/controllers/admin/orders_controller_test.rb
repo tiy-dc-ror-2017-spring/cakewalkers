@@ -5,6 +5,10 @@ class Admin::OrdersControllerTest < ActionDispatch::IntegrationTest
   # Allows for selecting output currency text in assert_select
   include ActionView::Helpers::NumberHelper
 
+  setup do
+    login_admin
+  end
+
   test "should get index" do
     get admin_orders_url
     assert_response :success
