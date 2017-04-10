@@ -1,4 +1,5 @@
-class Admin::OrdersController < ApplicationController
+class Admin::OrdersController < Admin::BaseController
+  before_action :staff_authorize!
   def index
     @orders = Order \
               .order(created_at: :desc)

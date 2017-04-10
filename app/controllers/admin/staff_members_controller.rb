@@ -1,25 +1,24 @@
-class Admin::StaffMembersController < ApplicationController
+class Admin::StaffMembersController < Admin::BaseController
+  before_action :admin_authorize!
   before_action :set_staff_member, only: [:show, :edit, :update, :destroy]
 
   def index
     @staff_members = StaffMember.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @staff_member = StaffMember.new(user: User.new)
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @staff_member = StaffMember.new({ user: User.new }.merge(staff_member_params))
 
     if @staff_member.save
-      redirect_to admin_staff_members_path, notice: 'StaffMember was successfully created.'
+      redirect_to admin_staff_members_path, notice: "Staff Member was successfully created."
     else
       render :new
     end
@@ -27,7 +26,7 @@ class Admin::StaffMembersController < ApplicationController
 
   def update
     if @staff_member.update(staff_member_params)
-      redirect_to admin_staff_members_path, notice: 'StaffMember was successfully updated.'
+      redirect_to admin_staff_members_path, notice: "Staff Member was successfully updated."
     else
       render :edit
     end
@@ -35,7 +34,7 @@ class Admin::StaffMembersController < ApplicationController
 
   def destroy
     @staff_member.destroy
-    redirect_to admin_staff_members_path, notice: 'StaffMember was successfully destroyed.'
+    redirect_to admin_staff_members_path, notice: "Staff Member was successfully destroyed."
   end
 
   private

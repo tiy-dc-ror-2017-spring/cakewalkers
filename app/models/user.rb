@@ -4,16 +4,30 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   has_one :staff_member
   has_many :orders
+  has_many :addresses
 
   def unpaid_order
-    if self.orders.where(paid_at: nil).empty?
-      self.orders.create
+    if orders.where(paid_at: nil).empty?
+      orders.create
     else
-      self.orders.find_by(paid_at: nil)
+      orders.find_by(paid_at: nil)
     end
   end
 
   def add_to_cart(item_params)
-    self.unpaid_order.line_items.build(item_params)
+    unpaid_order.line_items.build(item_params)
+  end
+
+  def admin?
+    role == "admin"
+  end
+
+  def staff_member?
+    role == "staff_member"
+  end
+
+  def client?
+    role != "admin" && role != "staff_member"
+    # !%w(admin staff_member).include?(role)
   end
 end

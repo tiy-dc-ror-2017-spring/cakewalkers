@@ -1,0 +1,48 @@
+<%= form_for @address, url: address_checkout_path do |f| %>
+
+  <% if @address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@address.errors.count, "error") %> prohibited this address from being saved:</h2>
+
+      <ul>
+      <% @address.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name, required: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name, required: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :street %>
+    <%= f.text_field :street, required: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :city %>
+    <%= f.text_field :city, required: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :state %>
+    <%= f.text_field :state, required: true, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :zip %>
+    <%= f.text_field :zip, required: true, class: "form-control" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
