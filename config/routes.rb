@@ -2,9 +2,18 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   namespace :admin do
-    resources :orders, only: [:index, :show]
+    resources :orders, only: [:index, :show] do
+      member do
+        patch :claim
+      end
+      collection do
+        get :ready
+      end
+    end
     resources :products
-    resources :staff_members
+    resources :staff_members do
+      resources :orders, only: [:index, :show], controller: :staff_members_orders
+    end
   end
   resources :orders
   resources :line_items
