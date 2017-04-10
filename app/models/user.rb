@@ -16,4 +16,8 @@ class User < ApplicationRecord
   def add_to_cart(item_params)
     self.unpaid_order.line_items.build(item_params)
   end
+
+  def admin?
+    current_user.role.casecmp == "admin"
+  end
 end
