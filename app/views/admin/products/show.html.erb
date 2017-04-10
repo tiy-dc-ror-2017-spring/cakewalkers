@@ -12,12 +12,14 @@
 
 <p>
   <strong>Picture:</strong>
-  <%= image_tag @product.picture, size: "144" %>
+  <% if @product.picture %>
+    <%= image_tag @product.picture, size: "72", class: 'thumbnail' %>
+  <% end %>
 </p>
 
 <p>
   <strong>Unit price:</strong>
-  <%= @product.unit_price_in_cents %>
+  <%= number_to_currency @product.unit_price %>
 </p>
 
 <%= link_to 'Edit', edit_admin_product_path(@product) %> |

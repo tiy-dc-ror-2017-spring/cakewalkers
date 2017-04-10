@@ -1,7 +1,7 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.new-session-or-user-form {
+.new-form {
   .form-group{
     margin: 0 auto;
     width: 66%;
@@ -13,4 +13,9 @@
     width: 66%;
     display: block;
   }
+}
+
+.fa-2x{
+  background-color: red;
+  padding-top: 2px;
 }
