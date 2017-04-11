@@ -22,7 +22,6 @@ class CheckoutController < ApplicationController
       @order = current_user.unpaid_order
       @order.paid_at = Time.zone.now
       @order.save
-
       redirect_to checkout_success_path(order_id: @order.id), notice: "Payment successfully created."
     else
       render :payment_new, notice: "Please re-enter payment."

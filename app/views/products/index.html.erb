@@ -14,7 +14,7 @@
         <% end %>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
-        <td><%= number_to_currency product.unit_price %></td>
+        <td><%= number_to_currency product&.unit_price %></td>
         <td><%= link_to 'Show', product_path(product) %></td>
         <td><%= link_to "Add to cart", new_line_item_path(product: product) %></td>
       </tr>
