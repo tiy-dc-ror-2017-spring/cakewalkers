@@ -20,4 +20,18 @@ class Order < ApplicationRecord
   def out_for_delivery?
     claimed? && !delivered_at
   end
+
+  def send_order_to_bakery
+    BakeryJob.perform_later(self)
+  end
+
+  def self.completed_orders
+    response = HTTParty.get("https://cakewalkers-api.herokuapp.com/bake_jobs")
+    orders_for_delivery = response.select { |order| order["state"] == "done" }
+    orders_for_delivery.each do |order|
+      unless order.ready_at
+        order.ready_at = Time.Now
+      end
+    end
+  end
 end

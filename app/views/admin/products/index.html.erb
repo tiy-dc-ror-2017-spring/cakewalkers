@@ -15,7 +15,7 @@
         <% end %>
         <td><%= product.name %></td>
         <td><%= product.description %></td>
-        <td><%= number_to_currency product.unit_price %></td>
+        <td><%= number_to_currency product&.unit_price_in_cents %></td>
         <td><%= link_to 'Show', admin_product_path(product) %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(product) %></td>
         <td><%= link_to 'Destroy', admin_product_path(product), method: :delete, data: { confirm: 'Are you sure?' } %></td>
