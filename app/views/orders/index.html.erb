@@ -15,7 +15,7 @@
     <tr>
         <td><%= link_to order.id, order_path(order) %></td>
         <td><%= number_to_currency order.subtotal %></td>
-        <td><%= number_to_percentage order.tax %></td>
+        <td><%= number_to_percentage order.dc_tax %></td>
         <td><%= number_to_currency order.total %></td>
     </tr>
   <% end %>

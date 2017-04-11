@@ -5,12 +5,23 @@ class Order < ApplicationRecord
   belongs_to :address, optional: true
   scope :ready, -> { where("ready_at IS NOT NULL") }
 
-  # TODO: write code to grab line_item_total for each line_item to get subtotal for order
   def calculate_subtotal(line_items)
+    total = 0
+    line_items.each do |item|
+      total += item.line_item_total
+    end
+    total
   end
 
-  def calculate_tax_total(subtotal)
-    subtotal * 0.00575
+  def dc_tax
+    0.0575
+  end
+
+  def finalize
+    self.subtotal = self.calculate_subtotal(self.line_items)
+    self.tax = self.dc_tax
+    self.total = (self.subtotal * self.dc_tax) + self.subtotal
+    self.save
   end
 
   def claimed?
