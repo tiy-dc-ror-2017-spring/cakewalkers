@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170411000854) do
 
   # These are extensions that must be enabled in order to support this database
@@ -49,7 +50,9 @@ ActiveRecord::Schema.define(version: 20170411000854) do
     t.datetime "updated_at",      null: false
     t.datetime "paid_at"
     t.datetime "ready_at"
-    t.string   "state"
+    t.integer  "address_id"
+    t.index ["address_id"], name: "index_orders_on_address_id", using: :btree
+
   end
 
   create_table "products", force: :cascade do |t|

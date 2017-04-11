@@ -1,6 +1,6 @@
 <h1>Admin Orders</h1>
 
-<% if current_user.staff_member %>
+<% if current_user&.staff_member %>
   <%= link_to "My Deliveries",
     admin_staff_member_orders_path(current_user.staff_member),
     class: "btn btn-default" %>

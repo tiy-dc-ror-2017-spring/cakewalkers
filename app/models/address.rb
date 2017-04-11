@@ -7,5 +7,5 @@ class Address < ApplicationRecord
   validates :state, presence: true
 
   VALID_ZIPCODE_REGEX = /\A(^\d{5}(?:[-\s]\d{4})?$)\Z/i
-  validates :zipcode, presence: true, format: { with: VALID_ZIPCODE_REGEX }
+  validates :zip, presence: true, format: { with: VALID_ZIPCODE_REGEX }
 end
