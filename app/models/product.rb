@@ -3,7 +3,7 @@ class Product < ApplicationRecord
 
   def unit_price
     if unit_price_in_cents
-    unit_price_in_cents / 100
+      unit_price_in_cents / 100
     end
   end
 end
