@@ -39,7 +39,6 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 gem 'sidekiq'
 gem 'redis'
-gem 'sinatra', require: false
 # pagination
 gem 'kaminari'
 gem "httparty"
