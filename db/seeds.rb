@@ -9,10 +9,10 @@ products.each do |product_attrs|
   product.save
 end
 
-# staff_members = StaffMember.create!([
-#   { name: "Molly", user: User.create(email: "molly@stoopler.com", password: "password", password_confirmation: "password") },
-#   { name: "James", user: User.create(email: "james@webb.com", password: "password", password_confirmation: "password") },
-#   { name: "Robby", user: User.create(email: "robby@dore.com", password: "password", password_confirmation: "password")},
-#   { name: "Russell", user: User.create(email: "russell@osborne.com", password: "password", password_confirmation: "password") }
-# ]
-# )
+staff_members = StaffMember.create!([
+  { name: "Molly", user: User.create(email: "molly@stoopler.com", password: "password", password_confirmation: "password") },
+  { name: "James", user: User.create(email: "james@webb.com", password: "password", password_confirmation: "password") },
+  { name: "Robby", user: User.create(email: "robby@dore.com", password: "password", password_confirmation: "password")},
+  { name: "Russell", user: User.create(email: "russell@osborne.com", password: "password", password_confirmation: "password") }
+]
+)

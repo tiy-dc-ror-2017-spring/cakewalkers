@@ -24,8 +24,8 @@ class Order < ApplicationRecord
     BakeryJob.perform_later(self)
   end
 
-  def completed_orders
+  def self.completed_orders
     response = HTTParty.get("https://cakewalkers-api.herokuapp.com/bake_jobs")
-    @completed_orders = response.select { |order| order.state = "done" }
+    @orders_for_delivery = response.select { |order| order["state"] == "done" }
   end
 end
